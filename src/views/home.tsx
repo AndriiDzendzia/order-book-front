@@ -38,7 +38,7 @@ export const HomeView : React.FC<Props> = ({isFetching, onSubmit, auditData, bid
   }, [auditData, formik.values.currencyPair])
 
   return (
-    <div className="h-screen">
+    <div className="h-screen flex flex-col">
       {isFetching && (<Loader />)}
 
       <form className="p-10 flex gap-5" onSubmit={formik.handleSubmit}>
@@ -74,10 +74,7 @@ export const HomeView : React.FC<Props> = ({isFetching, onSubmit, auditData, bid
           Show
         </Button>
       </form>
-
-      <div className="h-full flex p-10">
-        <Chart asks={asks} bids={bids}/>
-      </div>
+      <Chart asks={asks} bids={bids}/>
     </div>
   );
 };
