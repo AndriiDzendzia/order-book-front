@@ -46,7 +46,10 @@ export const HomeView : React.FC<Props> = ({isFetching, onSubmit, auditData, bid
           label="Currency pair" 
           values={currencyPairs} 
           value={formik.values.currencyPair} 
-          onChange={formik.handleChange} 
+          onChange={(e) => {
+            formik.handleChange(e);
+            formik.setFieldValue('timestamp', '');
+          }} 
           name="currencyPair"
         />
 
@@ -61,7 +64,7 @@ export const HomeView : React.FC<Props> = ({isFetching, onSubmit, auditData, bid
 
         <TextField
           value={formik.values.limit} 
-          onChange={formik.handleChange} 
+          onChange={formik.handleChange}
           name="limit"
           label="Limit"
           className="w-40"
@@ -73,9 +76,7 @@ export const HomeView : React.FC<Props> = ({isFetching, onSubmit, auditData, bid
       </form>
 
       <div className="h-full flex p-10">
-        <Chart data={bids} color="#8884d8" name="Bids"/>
-
-        <Chart data={asks} color="#82ca9d" name="Asks"/>
+        <Chart asks={asks} bids={bids}/>
       </div>
     </div>
   );
