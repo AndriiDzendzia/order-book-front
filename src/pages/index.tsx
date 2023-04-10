@@ -43,7 +43,6 @@ const Home: React.FC = () => {
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
   store =>
    async () => {
-      store.dispatch(baseApi.endpoints.getApiOrderBook.initiate({}));
       store.dispatch(baseApi.endpoints.getApiOrderBookCurrencyPair.initiate());
       store.dispatch(baseApi.endpoints.getApiOrderBookAudit.initiate());
 
