@@ -15,6 +15,7 @@ const injectedRtkApi = api
           params: {
             Timestamp: queryArg.timestamp,
             CurrencyPair: queryArg.currencyPair,
+            Limit: queryArg.limit,
           },
         }),
         providesTags: ["OrderBook"],
@@ -42,6 +43,7 @@ export type GetApiOrderBookApiResponse =
 export type GetApiOrderBookApiArg = {
   timestamp?: string;
   currencyPair?: string;
+  limit?: number;
 };
 export type GetApiOrderBookAuditApiResponse =
   /** status 200 Success */ StringDateTimeIEnumerableIDictionaryResult;

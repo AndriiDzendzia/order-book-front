@@ -26,4 +26,15 @@ const theme = createTheme({
   },
 });
 
+theme.components = {
+  ...theme.components,
+  MuiCssBaseline: {
+    styleOverrides: {
+      '.recharts-surface': {
+        overflow: 'visible',
+      }
+    }
+  },
+};
+
 export default theme;
