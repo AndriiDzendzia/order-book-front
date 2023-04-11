@@ -29,7 +29,7 @@ export const Chart: React.FC<Props> = ({ asks, bids, name }) => {
           }}
         >
           <XAxis type="category" dataKey="price"/>
-          <YAxis domain={['dataMin', 'dataMax']} />
+          <YAxis />
           <Tooltip labelFormatter={(d) => `price: ${d}`} />
           <Area dataKey="bid" fill="#66bb6a" stroke="#388e3c"/>
           <Area dataKey="ask" fill="#e57373" stroke="#d32f2f"/>

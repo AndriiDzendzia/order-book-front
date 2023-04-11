@@ -8,6 +8,7 @@ type Props = {
   onChange: ((event: SelectChangeEvent<string>, child: React.ReactNode) => void);
   label: string;
   name: string;
+  renderValues?: (value?: string) => React.ReactNode;
   renderValue?: (value?: string) => React.ReactNode;
   className?: string;
 }
@@ -18,7 +19,8 @@ export const Select:React.FC<Props> = ({
   onChange, 
   label, 
   name,
-  renderValue = (v) => v,
+  renderValues = (v) => v,
+  renderValue,
   className = "w-40",
 }) => {
   return (
@@ -34,7 +36,7 @@ export const Select:React.FC<Props> = ({
         onChange={onChange}
       >
         {values.map(v => (
-          <MenuItem key={v} value={v}>{renderValue(v)}</MenuItem>
+          <MenuItem key={v} value={v}>{renderValues(v)}</MenuItem>
         ))}
       </MuiSelect>
     </FormControl>

@@ -48,7 +48,7 @@ export const HomeView : React.FC<Props> = ({isFetching, onSubmit, auditData, bid
           value={formik.values.currencyPair} 
           onChange={(e) => {
             formik.handleChange(e);
-            formik.setFieldValue('timestamp', '');
+            formik.setFieldValue('timestamp', timestamps[0]);
           }} 
           name="currencyPair"
         />
@@ -59,7 +59,8 @@ export const HomeView : React.FC<Props> = ({isFetching, onSubmit, auditData, bid
           value={formik.values.timestamp} 
           onChange={formik.handleChange} 
           name="timestamp"
-          renderValue={(time) => time ? dayjs(time).format('YYYY-MM-DD HH:mm:ss') : 'Now'}
+          renderValue={() => formik.values.timestamp ? dayjs(formik.values.timestamp).format('YYYY-MM-DD HH:mm:ss') : ''}
+          renderValues={(time) => time ? dayjs(time).format('YYYY-MM-DD HH:mm:ss') : 'Now'}
         />
 
         <TextField
